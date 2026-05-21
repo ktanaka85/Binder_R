@@ -75,7 +75,7 @@ RUN mkdir -p /home/${NB_USER}/.config/rstudio \
     && cp /home/${NB_USER}/rstudio-prefs.json /home/${NB_USER}/.config/rstudio/rstudio-prefs.json
 
 # r-otel（GitHub版）のインストール
-RUN R -e "remotes::install_github('equinor/otel-r', upgrade = 'never')"
+RUN R -e "remotes::install_github('r-lib/otel', upgrade = 'never')"
 
 # TinyTeXのインストール（PDF出力用）
 RUN quarto install tinytex --no-prompt
