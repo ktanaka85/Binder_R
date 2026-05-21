@@ -1,4 +1,4 @@
-FROM rocker/binder:4.5.3
+FROM rocker/binder:latest
 
 # システムパッケージのインストール（apt.txt の内容を含む）
 USER root
