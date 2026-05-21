@@ -37,8 +37,12 @@ RUN curl -LO https://github.com/quarto-dev/quarto-cli/releases/download/v1.9.37/
 
 USER ${NB_USER}
 
-# リポジトリのファイルをコピー
-COPY --chown=${NB_USER}:${NB_USER} . /home/${NB_USER}/
+# リポジトリのファイルをコピー（root でコピーしてから所有権変更）
+USER root
+COPY . /home/${NB_USER}/
+RUN chown -R ${NB_USER} /home/${NB_USER}/
+
+USER ${NB_USER}
 
 # Rパッケージのインストール
 RUN R -e "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/jammy/latest')); \
