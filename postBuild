@@ -74,11 +74,11 @@ Rscript setup.R
 # RStudio Server を最新版に更新（R 4.5.x 対応）
 RSTUDIO_VERSION=2026.04.0-526
 curl -LO https://download2.rstudio.org/server/jammy/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb
-sudo dpkg -i rstudio-server-${RSTUDIO_VERSION}-amd64.deb
+dpkg -i rstudio-server-${RSTUDIO_VERSION}-amd64.deb
 rm -f rstudio-server-${RSTUDIO_VERSION}-amd64.deb
 
 # RStudio Server に R のパスを設定
-echo "rsession-which-r=$(which R)" | sudo tee -a /etc/rstudio/rserver.conf
+echo "rsession-which-r=$(which R)" >> /etc/rstudio/rserver.conf
 
 # RStudio設定の移植
 mkdir -p ~/.config/rstudio
