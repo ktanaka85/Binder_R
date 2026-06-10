@@ -70,6 +70,9 @@ quarto install tinytex
 echo Run setup.R
 Rscript setup.R
 
+mkdir -p /srv/conda/envs/notebook/bin/tools/x86_64
+ln -s /srv/conda/envs/notebook/bin/deno /srv/conda/envs/notebook/bin/tools/x86_64/deno
+
 # RStudio設定の移植
 mkdir -p ~/.config/rstudio
 mv rstudio-prefs.json ~/.config/rstudio/rstudio-prefs.json
